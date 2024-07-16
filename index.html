@@ -8,7 +8,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <p id="demo"></p>
-    <script src="array/nestedArrayObject.js"></script>
+  
+  <input type="text" placeholder="Enter the value" id="inputIteam">
+  <button type="button" onclick="addIteam()">ADD</button>
+  <ul id="listIteam"> 
+
+  </ul>
+  <script>
+    function addIteam(){
+      const input =document.getElementById('inputIteam');
+      const textIteam= input.value.trim();
+
+      if(textIteam !== ''){
+        const li=document.createElement('li');
+        li.textContent =textIteam;
+
+        const deleteButton = document.createElement('button');
+          deleteButton.textContent ='Delete';
+          deleteButton.onclick=function(){
+            li.remove()
+          };
+
+          li.appendChild(deleteButton);
+          document.getElementById('listIteam').appendChild(li);
+
+          input.value= '';
+
+
+      }
+
+    }
+  </script>
 </body>
 </html>
